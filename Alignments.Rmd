@@ -4,6 +4,7 @@ author: "RicardoQi"
 date: '2022-03-03'
 output: html_document
 ---
+#Github link: https://github.com/RicardoQi/DNA-Alignments.git
 Packages are installed.
 ```{r}
 r = getOption("repos")
@@ -60,8 +61,6 @@ Then str() is used to help understand the structure.
 ```{r}
 str(BbGbk)
 ```
-According to the string inforamtion, we can determine that the gene is originated from human, and it is a genome named Severe acute respiratory syndrome coronavirus. 
-```{r}
-BbTree<-nj(BbGbk)
-ggtree(BbTree)
-```
+According to the string inforamtion, we can determine that the gene is originated from human, and it is a genome named Severe acute respiratory syndrome coronavirus. \n
+![Image from Nature](C:\\Users\\qi199\\Documents\\DNA-Alignments\\A.png) \n
+The picture indicates that the genome is not only found in human, it possesses the ability of infecting between mammals and human. Besides, it affects the respiratory system of human, therefore it infects populations easily. 
