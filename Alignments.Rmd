@@ -1,0 +1,67 @@
+---
+title: "DNA Alignments"
+author: "RicardoQi"
+date: '2022-03-03'
+output: html_document
+---
+Packages are installed.
+```{r}
+r = getOption("repos")
+r["CRAN"] = "http://cran.us.r-project.org"
+options(repos = r)
+install.packages("BiocManager")
+
+install.packages("genbankr")
+install.packages("Biostrings")
+install.packages("ggtree")
+install.packages("annotate", force= TRUE)
+install.packages("muscle")
+
+install.packages("reshape2")
+install.packages("rentrez")
+```
+Packages are loaded before using.
+```{r}
+library(rentrez)
+library(genbankr)
+library(annotate)
+library(ape)
+```
+The ID of the gene is entered to be read in the code.
+```{r}
+BbID<-GBAccession("NC_045512.2")
+BbGbk<-readGenBank(BbID)
+```
+Use class() to return the class of the gene.
+```{r}
+class(BbGbk)
+```
+Then the coding sequence is shown.
+```{r}
+cds(BbGbk)
+```
+RNA sequences that are transcribed from DNA are presented.
+```{r}
+transcripts(BbGbk)
+```
+Exons are interpreted.
+```{r}
+exons(BbGbk)
+```
+a list of sequences corresponding to genes is returned using gene().
+```{r}
+genes(BbGbk)
+```
+Other features are provided.
+```{r}
+otherFeatures(BbGbk)
+```
+Then str() is used to help understand the structure.
+```{r}
+str(BbGbk)
+```
+According to the string inforamtion, we can determine that the gene is originated from human, and it is a genome named Severe acute respiratory syndrome coronavirus. 
+```{r}
+BbTree<-nj(BbGbk)
+ggtree(BbTree)
+```
